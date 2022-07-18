@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/Common/GlobalStyle';
+import Introduction from 'components/Main/Introduction';
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const IndexPage: FunctionComponent = function () {
   return (
     <Container>
       <GlobalStyle />
+      <Introduction />
     </Container>
   );
 };
