@@ -12,7 +12,6 @@ module.exports = {
         allExtensions: true,
       },
     },
-    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,8 +19,6 @@ module.exports = {
         path: `${__dirname}/contents`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -57,6 +54,19 @@ module.exports = {
               rel: 'nofollow',
             },
           },
+          {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+              defaults: {
+                formats: ['auto', 'webp'],
+                quality: 100,
+                placeholder: 'blurred',
+              },
+            },
+          },
+          `gatsby-plugin-emotion`,
+          `gatsby-transformer-sharp`,
+          `gatsby-plugin-image`,
         ],
       },
     },

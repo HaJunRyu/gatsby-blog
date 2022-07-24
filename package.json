@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.9.3",
     "gatsby": "^4.19.2",
     "gatsby-plugin-emotion": "^7.18.0",
+    "gatsby-plugin-image": "^2.19.0",
     "gatsby-plugin-sharp": "^4.19.0",
     "gatsby-remark-copy-linked-files": "^5.19.0",
     "gatsby-remark-external-links": "^0.0.4",
