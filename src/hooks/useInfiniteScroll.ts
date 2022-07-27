@@ -3,7 +3,7 @@ import { PostListItemType } from 'types/PostItem.types';
 
 export type useInfiniteScrollType = {
   containerRef: MutableRefObject<HTMLDivElement | null>;
-  postList: PostType[];
+  postList: PostListItemType[];
 };
 
 const NUMBER_OF_ITEMS_PER_PAGE = 10;
