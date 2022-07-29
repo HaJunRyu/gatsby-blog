@@ -56,6 +56,10 @@ const MarkdownRenderer = styled.div`
     font-size: 20px;
   }
 
+  img {
+    width: 100%;
+  }
+
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 0;
@@ -83,10 +87,6 @@ const MarkdownRenderer = styled.div`
     text-decoration: underline;
   }
 
-  img {
-    width: 100%;
-  }
-
   // Adjust Code Style
   pre[class*='language-'] {
     margin: 30px 0;
@@ -102,6 +102,30 @@ const MarkdownRenderer = styled.div`
   code[class*='language-'],
   pre[class*='language-'] {
     tab-size: 2;
+  }
+
+  // Markdown Responsive Design
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 80px 20px;
+    line-height: 1.6;
+    font-size: 14px;
+
+    h1 {
+      font-size: 23px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 17px;
+    }
+
+    hr {
+      margin: 50px 0;
+    }
   }
 `;
 
