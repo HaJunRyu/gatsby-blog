@@ -1,27 +1,97 @@
 ---
-date: '2022-07-24'
-title: '부탁한다'
-categories: ['Web', 'SEO', 'Optimization']
-summary: '홈페이지를 운영하는 많은 사람들 또는 기업들이 검색 페이지 최상단에 보여지게 하기 위해 어떤 최적화 작업을 하는지 알아보자.'
+date: '2022-02-24'
+title: '인용문(q, blockquote)'
+categories: ['Web', 'HTML']
+summary: 'HTML5에서 인용문을 사용하는 방법에 대해 알아보자'
 thumbnail: './test.png'
 ---
 
-### 1. Help Google Bot to Find My Contents
+# 인용문(q, blockquote)
 
-구글에 SiteMap을 제출하여 사이트에 있는 파일로서 새 페이지나 변경된 페이지가 있을 때 이를 검색 엔진에 알려주도록 할 수 있다.
+![](https://user-images.githubusercontent.com/71176945/145383954-112fe458-7274-4ac5-8c28-49def4ce9e5c.png)
 
-SiteMap은 사이트에 있는 페이지, 동영상 및 기타 파일과 각 관계에 관한 정보를 제공하는 파일로, 검색 엔진은 이를 읽고 사이트를 더 지능적으로 크롤링 할 수 있게 된다.
+## 사용법 및 정의
 
-### 2. Use 'Robots.txt' File
+- [인용문](https://namu.wiki/w/%EC%9D%B8%EC%9A%A9)임을 나타내는 태그이다.
 
-Robots.txt 파일은 검색 엔진에 어떤 페이지를 크롤링해도 되는지 알리는 파일로, 서버의 루트 디렉토리에 있어야 한다.
+- `<q>`태그는 문단 안에서 인용할 때 사용하는 inline 요소이다.
 
-과도한 Robots.txt 파일은 더 많은 방문자를 유도할 수 있는 정상적인 검색 엔진 크롤러의 접근을 막을 가능성이 있기 때문에 적절하게 설정해야 한다.
+- `<blockquote>`태그는 새로운 문단에서 인용하는 block 요소이다.
 
----
+- 보통 3줄 이내로 짧게 인용할 경우 q태그를 사용하고 3줄 이상의 문단 전체를 인용할때 blockquote를 사용한다.
 
-## Source
+- cite속성을 이용하여 인용문의 출처를 나타내줄 수 있지만 필수 속성은 아니다.
 
-- SEO 기본 가이드
+```html
+<q cite="www..."></q>
+<blockquote cite="www..."></blockquote>
+```
 
-  [https://support.google.com/webmasters/answer/7451184?hl=ko&ref_topic=9460495](https://support.google.com/webmasters/answer/7451184?hl=ko&ref_topic=9460495)
+## q태그`<q></q>`
+
+- q태그의 기본 css속성
+
+```css
+q {
+  display: inline;
+}
+q::before {
+  content: open-quote;
+}
+q::after {
+  content: close-quote;
+}
+```
+
+- q태그는 특이하게도 기본속성으로 가상요소 선택자인 before요소로는 인용문을 여는 쌍 따옴표 (") after요소로는 닫는 쌍 따옴표 (")가 생성된다.
+
+- 만약 가상요소선택자를 초기화 시켜주고 싶을 경우 content속성의 값을 null("")로 지정해주면 된다.
+
+- 변경도 가능하다. 만약 인용문을 [](대괄호)로 감싸주고 싶다면 `content: "[""]"` 이와 같이 선언해주면 된다.
+
+### q태그를 사용한 인용문의 예시
+
+```html
+<p>
+  팀 버너스 리 경은 말했다.
+  <q cite=""
+    >웹의 힘은 그것의 보편성에 있다.장애에 구애없이 모든 사람이 접근할 수 있는 것이 필수적인
+    요소이다.</q
+  >
+  - 팀 버너스 리경 - 웹의 창시자 제대로 된 프론트엔드 개발자가 되기 위해 웹에서 접근성을
+  고려하는것은 꼭 갖춰야 할 덕목이라고 생각한다.
+</p>
+```
+
+## blockquote태그 `<blockquote></blockquote>`
+
+- blockquote태그의 기본 css속성
+
+```css
+blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+```
+
+### blockquote태그를 사용한 인용문의 예시
+
+```html
+<div>
+  <h1>백범 김구 선생님</h1>
+  <blockquote cite="https://namu.wiki/w/%EA%B9%80%EA%B5%AC#s-1">
+    <p>
+      한국의 독립운동가, 정치인. 일제강점기 시절 독립운동가 중에서도 순위권에 손꼽히는 인지도와
+      영향력을 가진 정치인으로 평가받는다. 동학농민운동과 교육계몽운동에 참여했고, 1919년에는 중국
+      상하이로 건너가 대한민국 임시정부 수립에 참여하여 의정원 의원, 내무총장, 국무총리 대리,
+      내무총장 겸 노동국 총판, 국무령, 의정원 의원, 국무위원 겸 내무장, 재무장, 군무장을 거쳐 1940년
+      임시정부 주석에 선출됐다.
+    </p>
+    <cite>나무위키</cite>
+    <!-- cite속성과 다른 cite태그 - URL이 아닌 출처를 표기해줄때 사용한다. -->
+  </blockquote>
+</div>
+```
