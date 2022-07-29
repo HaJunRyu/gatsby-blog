@@ -4,6 +4,7 @@ import { PostFrontmatterType } from 'types/PostItem.types'; // 바로 아래에�
 import Template from 'components/Common/Template';
 import PostHead from 'components/Post/PostHead';
 import PostContent from 'components/Post/PostContent';
+import CommentWidget from 'components/Post/CommentWidget';
 
 export type PostPageItemType = {
   node: {
@@ -44,6 +45,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
     <Template>
       <PostHead title={title} date={date} categories={categories} thumbnail={gatsbyImageData} />
       <PostContent html={html} />
+      <CommentWidget />
     </Template>
   );
 };
