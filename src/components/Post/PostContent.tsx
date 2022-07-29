@@ -83,6 +83,10 @@ const MarkdownRenderer = styled.div`
     text-decoration: underline;
   }
 
+  img {
+    width: 100%;
+  }
+
   // Adjust Code Style
   pre[class*='language-'] {
     margin: 30px 0;
